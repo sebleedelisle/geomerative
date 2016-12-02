@@ -76,8 +76,8 @@ public class RFont implements PConstants{
    */
   public RFont(String fontPath, int size, int align) throws RuntimeException{   
     // Try to find the font as font path
-    byte[] bs = RG.parent().loadBytes(fontPath);
-    f = Font.create(bs);
+    // byte[] bs = RG.parent().loadBytes(fontPath);
+    f = Font.create(fontPath);
     
     setSize(size);
     setAlign(align);
@@ -268,7 +268,7 @@ public class RFont implements PConstants{
       Glyph glyph = f.getGlyph(glyphIndex);
       int default_advance_x = f.getHmtxTable().getAdvanceWidth(glyphIndex);
       if (glyph != null) {
-        glyph.scale(scaleFactor);
+        glyph.scale(Math.round(scaleFactor));
         // Add the Glyph to the Shape with an horizontal offset of x
         result.addElement(getGlyphAsShape(f,glyph, glyphIndex,x));
         x += glyph.getAdvanceWidth();
@@ -347,7 +347,7 @@ public class RFont implements PConstants{
       Glyph glyph = f.getGlyph(glyphIndex);
       int default_advance_x = f.getHmtxTable().getAdvanceWidth(glyphIndex);
       if (glyph != null) {
-        glyph.scale(scaleFactor);
+        glyph.scale(Math.round(scaleFactor));
         // Add the Glyph to the Shape with an horizontal offset of x
         result.addChild(getGlyphAsShape(f,glyph, glyphIndex,x));
         x += glyph.getAdvanceWidth();
