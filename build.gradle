@@ -1,22 +1,19 @@
 apply plugin: 'java'
-apply plugin: 'maven-publish'
+
+version '41';
+
 configurations.all {
     resolutionStrategy.force 'xml-apis:xml-apis:1.1.2', 'xml-apis:xml-apis:1.0.b2'
 }
 
 repositories {
     mavenCentral()
-    mavenLocal()
 }
 
 
 dependencies {
     compile group: 'org.processing', name: 'core', version: '2.2.1'
-    //compile 'org.processing:core:3.2.3'
     compile group: 'org.apache.xmlgraphics', name: 'batik-svggen', version: '1.7'
-    //compile group: 'batik', name: 'batik-svggen', version: '1.5'
-
-
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
 }
