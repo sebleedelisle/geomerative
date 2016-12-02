@@ -17,7 +17,7 @@
     along with Geomerative.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-package geomerative ;
+package geomerative;
 
 class RRectangle
 {
